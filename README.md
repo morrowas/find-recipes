@@ -6,7 +6,7 @@ Send request through HTTP POST call. Call must contain:
 - A JSON object with "ingredients" as the key and an array of ingredients as the value. Here is an example object: {"ingredients": ["soy sauce", "butter"]}.
 
 ### Example call:
-**Note:** Uses Python's <ins>requests</ins> module
+**Note:** Uses Python's <ins>requests</ins> and <ins>json</ins> module
 ```
 ingredients_list = {"ingredients": ["soy sauce", "butter"]}
 ingredients_json = json.dumps(ingredients_list)
@@ -17,7 +17,8 @@ response = requests.post(url, ingredients_json)
 ## How to RECEIVE data:
 The microservice will send an array of recipes in the response body. Each element of the array will include a dictionary that includes the name of the recipe, the ingredients in the recipe, and recipe instructions. The response will be in JSON _text_ format; it can easily be converted to a JSON object through any modules that handle JSON objects. For example, to convert the response to a JSON in Python, simply import the <ins>json</ins> module, then save the JSON object as demonstrated in the example call.
 
-### Example call: 
+### Example call:
+**Note:** Uses Python's <ins>requests</ins> and <ins>json</ins> module
 ```
 response = requests.post(url, ingredients_json)
 print(response.json()) #Adding the json method will convert the response into JSON
